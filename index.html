@@ -4,28 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital clock</title>
+    <title>toggle</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <h2>Digital clock</h2>
-    <div class="clock">
-      <div>
-        <span id="hour">00</span>
-        <span id="text">Hour</span>
-      </div>
-
-      <div>
-        <span id="minute">00</span>
-        <span id="text">Minute</span>
-      </div>
-
-      <div>
-        <span id="seconds">00</span>
-        <span id="text">Seconds</span>
-      </div>
-      <span id="ampm">PM</span>
-    </div>
+    <input type="checkbox" id="dark-mode" class="input" />
+    <label for="dark-mode" class="label">
+      <div class="circle"></div>
+    </label>
     <script src="/script.js"></script>
   </body>
 </html>

@@ -1,27 +1,23 @@
-const hourEl = document.getElementById('hour')
-const minuteEl = document.getElementById('minute')
-const secondEl = document.getElementById('seconds')
-const ampmEl = document.getElementById('ampm')
+const innerEl = document.querySelector('input')
+console.log(innerEl.checked)
 
-function updateClock() {
-  let h = new Date().getHours()
-  let m = new Date().getMinutes()
-  let s = new Date().getSeconds()
-  let ampm = 'PM'
+const bodyEl = document.querySelector('body')
 
-  if (h < 12) {
-    h = h - 12
-    ampm = 'AM'
+console.log(bodyEl.checked)
+
+innerEl.checked = JSON.parse(localStorage.getItem('mode'))
+
+function updateBody() {
+  if (innerEl.checked) {
+    bodyEl.style.backgroundColor = 'black'
+  } else {
+    bodyEl.style.backgroundColor = 'white'
   }
-  h = h < 10 ? '0' + h : h
-  m = m < 10 ? '0' + m : m
-  s = s < 10 ? '0' + s : s
-  hourEl.innerText = h
-  minuteEl.innerText = m
-  secondEl.innerText = s
-  ampmEl.innerText = ampm
-  setTimeout(() => {
-    updateClock()
-  }, 1000)
 }
-updateClock()
+updateBody()
+
+innerEl.addEventListener('click', updateBody)
+
+function updateLocalstorage() {
+  localStorage.setItem('mode', JSON.stringify(innerEl.checked))
+}
